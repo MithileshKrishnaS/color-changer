@@ -39,16 +39,13 @@ var options = [
             }
     ];
 
-var showcolor='lime';
-var first=false;
 var bg="lime"
 
 const Color = (props) => {
     const [colors, setColors] = useState('lime');
     function color()
     {
-        if(first===false)
-        {
+        
             for(let i=0;i<options.length;i++)
             {
                 var division=document.createElement('div');
@@ -60,25 +57,27 @@ const Color = (props) => {
                 document.getElementById('color-opt').appendChild(division);
                 division.onclick = function () {
                     setColors(options[i].value)
+                    remove();
+                   
                 };
             }
-            first=true;
-        }
-        else
+            
+       
+    }
+
+    function remove()
+    {
+        var list = document.getElementById("color-opt");
+        for(let i=0;i<9;i++)
         {
-            var list = document.getElementById("color-opt");
-            for(let i=0;i<9;i++)
-            {
-                let j=0;
-                list.removeChild(list.childNodes[j]);
-            }
-            first=false;
+            let j=0;
+            list.removeChild(list.childNodes[j]);
         }
     }
 
     return (
         <div>
-        <div id="color" className="color"><button onClick={color} className="mainbtn">{showcolor} <i class="fas fa-chevron-up"></i></button></div>
+        <div id="color" className="color"><button onClick={color} className="mainbtn">{colors} <i class="fas fa-chevron-up"></i></button></div>
         <div id="color-opt" className="color-opt"></div>
         <div id="bg" className="bg"  style={{background: colors}}></div>
         </div>
