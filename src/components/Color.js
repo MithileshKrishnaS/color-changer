@@ -40,12 +40,13 @@ var options = [
     ];
 
 var bg="lime"
-
+var check=true;
 const Color = (props) => {
     const [colors, setColors] = useState('lime');
     function color()
     {
-        
+        if(check)
+        {
             for(let i=0;i<options.length;i++)
             {
                 var division=document.createElement('div');
@@ -56,11 +57,14 @@ const Color = (props) => {
                 division.appendChild(c);
                 document.getElementById('color-opt').appendChild(division);
                 division.onclick = function () {
-                    setColors(options[i].value)
-                    remove();
-                   
+                    setColors(options[i].value);
+                    check=true;
+                    remove();          
                 };
             }
+            check=false;
+        }
+           
             
        
     }
