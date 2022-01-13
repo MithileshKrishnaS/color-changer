@@ -81,7 +81,8 @@ const Color = (props) => {
 
     return (
         <div>
-        <div id="color" className="color"><button onClick={color} className="mainbtn">{colors} <i class="fas fa-chevron-up"></i></button></div>
+        <div id="color" className="color"><button onClick={color} style={{background: colors}}
+         className="mainbtn">{colors} <i class="fas fa-chevron-up"></i></button></div>
         <div id="color-opt" className="color-opt"></div>
         <div id="bg" className="bg"  style={{background: colors}}></div>
         </div>
